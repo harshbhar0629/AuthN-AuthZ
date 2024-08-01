@@ -95,8 +95,8 @@ module.exports.login = async (req, res) => {
 			});
 
 			// Way-1
-			// data = data.toObject();
-			// data.token = token;
+			data = data.toObject();
+			data.token = token;
 			// console.log(data.token);
 
 			// Way-2
@@ -111,7 +111,7 @@ module.exports.login = async (req, res) => {
 				expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
 				httpOnly: true
 			}
-
+			console.log(data);
 			res.cookie("Cookie", token, options).status(200).json({
 				success: true,
 				token,
